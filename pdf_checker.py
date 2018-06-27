@@ -1,9 +1,20 @@
 """
 PDF Checker
+-----------
 
+Description
+-----------
 This program checks whether a PDF document can be parsed, or not.
 
-@author Beom Jin Lee <cluesbj@berkeley.edu>
+Sample Usage
+------------
+>>> import pdf_checker
+>>> one_document("/home/brian_lee/Desktop/PDF/pagerank.PDF")
+1
+
+Author
+------
+Beom Jin Lee <cluesbj@berkeley.edu>
 """
 
 import io
@@ -14,18 +25,20 @@ import PyPDF2
 from interruptingcow import timeout
 
 def one_document(path, waittime = 2, DEBUG = False):
-    """
-    This function will update status on whether a SINGLE PDF document can be parsed.
+    """ Update status on whether a SINGLE PDF document can be parsed.
 
-    path : the path of
-    waittime : time before program times out, set to 2 by default
-    DEBUG : debug option that prints out success, set to False by default
+    Variables
+    ---------
+    path: the path of
+    waittime: time before program times out, set to 2s by default
+    DEBUG: debug option that prints out success, set to False by default
 
-    @return
-        1: extractable
-        0: needs to be OCR'd
-        -1: Timeout error
-        -2: Errors out somewhere else
+    Return
+    ------
+    1: extractable
+    0: needs to be OCR'd
+    -1: Timeout error
+    -2: Errors out somewhere else
     """
     try:
         with timeout(waittime, exception = RuntimeError):
