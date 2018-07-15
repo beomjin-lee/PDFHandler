@@ -4,6 +4,8 @@ Author: Beom Jin Lee
 
 This package allows parsing through a PDF document.
 
+If PDF is not parseable, the PDF document is run through an OCR, using SVM to recognize text.
+
 Prerequisites :
 1. PyPDF2
 2. pdfminer
